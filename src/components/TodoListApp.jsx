@@ -46,9 +46,9 @@ export const TodoListApp = () => {
       if (task.id == element.id) {
         actualTasks[index].completed = !actualTasks[index].completed;
       }
-    });
-    setTaskList([...actualTasks]);
-  };
+    })
+    setTaskList([...actualTasks])
+  }
 
   const fetchTasks = async () => {
     try {

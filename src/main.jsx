@@ -6,7 +6,7 @@ import "./index.css"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <>
-    <CounterApp/>
+    <CounterApp counterModifier={1} allowNegative={true}/>
     <TodoListApp/>
   </>
 )

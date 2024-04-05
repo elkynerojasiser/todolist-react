@@ -1,9 +1,9 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 export const AddTaskApp = ({addTaskToList}) => {
 
   const [description, setDescription] = useState('');
-
+  const focusRef = useRef()
   const onButtonClick = (event) => {
     
   } 
@@ -15,12 +15,15 @@ export const AddTaskApp = ({addTaskToList}) => {
     addTaskToList(description)
     setDescription('')
   }
+  useEffect(() => {
+    focusRef.current.focus()
+  },[])
   return (
     <>
       <form onSubmit={onSubmitForm}>
         <div className="row">
           <div className="col-sm-8">
-            <input className="form-control" type="text" placeholder="Agrega una tarea" onChange={onInputChange} value={description} />
+            <input ref={focusRef} className="form-control" type="text" placeholder="Agrega una tarea" onChange={onInputChange} value={description} />
           </div>
           <div className="col-sm-2">
             <button className="btn btn-primary" type="submit">Agregar</button>
