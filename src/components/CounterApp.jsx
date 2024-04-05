@@ -1,19 +1,8 @@
 import { useState } from 'react';
+import { useCounter } from '../hooks/useCounter';
 
 export const CounterApp = ( {counterModifier, allowNegative} ) => {
-    const [counter,setCounter] = useState(0)
-    const increment = () => {
-      setCounter(counter + counterModifier)
-    }
-    const decrement = () => {
-      if(!allowNegative && ((counter - counterModifier) < 0)) {
-        return
-      }
-      setCounter(counter - counterModifier)
-    }
-    const reset = () => {
-      setCounter(0)
-    }
+  const { counter, increment, decrement, reset } = useCounter({counterModifier, allowNegative })
   return (
     <>
       <div className="container p-5">
